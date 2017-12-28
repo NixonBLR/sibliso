@@ -19,7 +19,7 @@ svg.small {
   justify-content: center;
   flex-direction: column;
   overflow-y: auto;
-  min-height: 800px;
+  min-height: 400px;
 }
 
 .loader {
