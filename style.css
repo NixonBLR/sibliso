@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700');
+
+div {
+  display: flex;
+}
+
+svg.small {
+  width: 100px;
+  margin-top: 10vh;
+}
+
+#root {
+  color: #000000;
+  font-family: "Open Sans";
+  background: radial-gradient(circle, #ffffff 0%, #ffb700 100%);
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 400px;
+}
+
+.loader {
+  justify-content: space-between;
+  align-items: flex-end; /*Добавил выравнивание по нижнему краю (для анимации)*/
+  width: 190px;
+  min-height: 82px; /*Заменил margin на минимальную высоту, чтобы блоки не прыгали (для анимации)*/
+}
+/*АНИМАЦИЯ*/
+.loader .item {
+  height: 22px;
+  width: 35px;
+  background-color: #000000;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  }
+
+.loader .first {
+  animation-name: equalizer-first;
+  }
+
+.loader .second {
+  animation-name: equalizer-second;
+  animation-delay: 0.25s;
+}
+
+.loader .third {
+  animation-name: equalizer-third;
+  animation-delay: 0.5s;
+}
+
+.loader .fourth {
+  animation-name: equalizer-fourth;
+  animation-delay: 0.75s;
+}
+
+/*Styles for login page*/
+.login-page {
+  min-height: 500px;
+  overflow-y: auto;
+}
+
+.login-page #logo, .login-page .title, .login-page .login-form {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.login-page .title {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.login-page .login-form {
+  flex-direction: column;
+  flex: 2;
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-field input[type="text"], .text-field input[type="password"] {
+  height: 5vh;
+  min-height: 20px;
+  width: 70vw;
+  border: 2px solid #000000;
+  font-size: 20px;
+  text-align: center;
+}
+
+.login-page input[type="submit"] {
+  height: 5vh;
+  min-height: 20px;
+  width: 70vw;
+  border: 1px solid #E2E2E2;
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 15px 0 rgba(135, 94, 0, 0.65);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.text-field h4 {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 5px; /*Добавил небольшой отступ, чтобы текст не прилипал к рамке*/
+}
+
+.login-page .text-field {
+  padding: 10px 0;
+}
+
+.login-page .submit {
+  padding: 4vh 0;
+  font-weight: 300;
+}
+
+/*Styles for question-selector page*/
+.login-page #logo, .login-page .question, .login-page .styled-questions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.login-page .styled-questions {
+  flex-direction: column;
+  flex: 4;
+}
+/* Два стиля выше - мои добавления*/
+
+.styled-questions {
+  display: block;
+  position: relative;
+  margin: 0px auto; /*Уменьшил внешний отступ*/
+  height: auto;
+  width: 70vw;
+}
+
+.styled-questions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+/*Убрал скроллинг у списка, остался только у страницы*/
+}
+
+.styled-questions ul li {
+  color: rgba(0, 0, 0, 0.65);
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 9vh; /*Уменьшил высоту строки для пункта списка*/
+  border-bottom: 3px solid rgba(0, 0, 0, 0.65);
+  transition: all 0.25s linear;
+}
+
+.styled-questions li:hover {
+  border-bottom: 3px solid rgba(0, 0, 0, 1);
+}
+
+.styled-questions ul li input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.styled-questions ul li label {
+  display: block;
+  position: relative;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4vh 25px 1vh 55px; /*Уменьшил верхний внутренний отступ*/
+  margin: 1vh auto;
+  height: 20px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+.styled-questions ul li:hover label {
+  color: #000000;
+}
+
+.styled-questions ul li .check {
+  display: block;
+  position: absolute;
+  border: 3px solid rgba(0, 0, 0, 0.65);
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 5vh; /*Изменил высоту расположения маркера*/
+  left: 20px;
+  z-index: 5;
+  transition: border .25s linear;
+  -webkit-transition: border .25s linear;
+}
+
+.styled-questions ul li:hover .check {
+  border: 3px solid #000000;
+}
+
+.styled-questions ul li .check::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  height: 7px;
+  width: 7px;
+  top: 2px;
+  left: 2px;
+  margin: auto;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
+}
+
+.styled-questions input[type=radio]:checked~.check {
+  border: 3px solid #000000;
+}
+
+.styled-questions input[type=radio]:checked~.check::before {
+  background: #000000;
+}
+
+.styled-questions input[type=radio]:checked~label {
+  color: #000000;
+}
+
+.styled-questions input[type=submit] {
+  height: 5vh;
+  min-height: 25px;
+  width: 70vw;
+  border: 1px solid #E2E2E2;
+  background-color: #FFFFFF;
+  margin: 3vh;
+  box-shadow: 0 8px 15px 0 rgba(135, 94, 0, 0.65);
+}
+
+.question {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 70px 20px 0;
+  text-align: center;
+}
+
+/* The animation code */
+@keyframes equalizer-first{
+  0% {height: 22px;}
+  50% {height: 62px;}
+  100% {height: 22px;}
+}
+@keyframes equalizer-second{
+  0% {height: 22px;}
+  50% {height: 62px;}
+  100% {height: 22px;}
+}
+@keyframes equalizer-third{
+  0% {height: 22px;}
+  50% {height: 62px;}
+  100% {height: 22px;}
+}
+@keyframes equalizer-fourth{
+  0% {height: 22px;}
+  50% {height: 62px;}
+  100% {height: 22px;}
+}
+
+@media screen and (min-height: 500px) {
+  .styled-questions ul li label {font-size: 18px;}
+  .question {font-size: 20px;}
+  .styled-questions ul li .check {
+    height: 20px;
+    width: 20px;
+    top: 4vh; /*Изменил высоту расположения маркера*/}
+    .styled-questions ul li .check::before {
+      height: 10px;
+      width: 10px;
+      top: 5px;
+      left: 5px;
+}
